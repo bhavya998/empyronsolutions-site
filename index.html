@@ -9,6 +9,19 @@
   <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"/>
   <meta name="author" content="Empyron Solutions"/>
   
+  <!-- Favicon -->
+  <link rel="icon" href="logo.png" type="image/x-icon"/>
+  <link rel="apple-touch-icon" href="logo.png"/>
+  
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-VDLZ7H83DL"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-VDLZ7H83DL');
+  </script>
+  
   <!-- Open Graph Meta Tags -->
   <meta property="og:title" content="Empyron Solutions (Empyrean) - Leading AI Consulting & Digital Transformation Company | AI Agents & Automation"/>
   <meta property="og:description" content="Transform your business with Empyron Solutions' cutting-edge AI consulting, machine learning, data analytics, and intelligent automation. Specialized in agentic AI, AI automation & digital transformation services."/>
@@ -117,6 +130,23 @@
     .accent-border { border-color: #00ffff; }
     .hover\:accent-bg-darker:hover { background-color: #00dddd; }
     .hover\:accent-text:hover { color: #00ffff; }
+
+    /* Mobile Optimizations */
+    @media (max-width: 640px) {
+      #hero-content { padding: 0 1rem; }
+      .service-card { margin: 0.5rem; }
+      #mobile-menu-button .lucide { font-size: 1.5rem; }
+    }
+
+    /* CTA Button Hover Fix */
+    .cta-button {
+      transition: all 0.3s ease;
+    }
+    .cta-button:hover {
+      background-color: #00ffff !important;
+      color: #000000 !important;
+      border-color: #00ffff !important;
+    }
 
     /* Animations */
     @keyframes fadeIn {
@@ -315,15 +345,15 @@
     <div id="three-canvas-container" role="presentation"></div>
     <div id="hero-content" class="px-4 sm:px-6 lg:px-8">
       <!-- Main Tagline -->
-      <h1 class="text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-black text-white mb-4 leading-tight animate-fade-in-up-slow max-w-5xl mx-auto">
-        Transform Your Business with Next-Gen AI Solutions
+      <h1 class="text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-black text-white mb-4 leading-none animate-fade-in-up-slow max-w-5xl mx-auto">
+        Transform Your Business<br>with Next-Gen AI Solutions
       </h1>
       <!-- Sub-Tagline -->
       <p class="text-base sm:text-lg md:text-xl text-gray-300 mb-8 max-w-2xl mx-auto animate-fade-in-up-normal px-4">
         Partner with us to implement transformative AI strategies and data solutions for unstoppable growth.
       </p>
       <!-- CTA Button pushed further down -->
-      <a href="#contact" class="inline-block mt-16 sm:mt-24 md:mt-32 px-6 sm:px-8 py-3 rounded-md border-2 accent-border text-white font-semibold hover:accent-bg hover:text-black transition-all duration-300 transform hover:scale-105 animate-fade-in-up-fast text-sm sm:text-base">
+      <a href="#contact" class="cta-button inline-block mt-16 sm:mt-24 md:mt-32 px-6 sm:px-8 py-3 rounded-md border-2 accent-border text-white font-semibold transition-all duration-300 transform hover:scale-105 animate-fade-in-up-fast text-sm sm:text-base">
         Book Your Strategy Call
       </a>
     </div>
