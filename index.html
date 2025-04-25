@@ -103,11 +103,24 @@
       messageDiv.innerHTML = '';
       
       try {
+        // Convert form data to JSON format
+        const data = {
+          name: formData.get('Name'),
+          email: formData.get('Email'),
+          phone: formData.get('Phone'),
+          service: formData.get('Service'),
+          message: formData.get('Message')
+        };
+        
         const response = await fetch('https://script.google.com/macros/s/AKfycbzwbGQ1STF2dDwSjRMpeb4dLsoM1_6RTuB3I6Olnz_VsCE_qXGXwCdkP_7_5433sIiv/exec', {
           method: 'POST',
-          body: formData,
+          body: JSON.stringify(data),
+          headers: {
+            'Content-Type': 'application/json'
+          },
           mode: 'no-cors' // Required for Google Apps Script
         });
+
         
         // Since no-cors mode doesn't allow reading the response, we'll assume success if no error occurred
         messageDiv.innerHTML = '<p class="text-green-400">Thank you! Your message has been sent successfully.</p>';
