@@ -1,10 +1,11 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
     output: 'export',
+    basePath: '/empyronsolutions-site',
+    assetPrefix: '/empyronsolutions-site/',
     images: {
         unoptimized: true,
     },
-    // Remove basePath for now to test
     trailingSlash: true,
 };
 
