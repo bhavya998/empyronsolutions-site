@@ -1,8 +1,7 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
     output: 'export',
-    basePath: '/empyronsolutions-site',
-    assetPrefix: '/empyronsolutions-site/',
+    // Removed basePath and assetPrefix for custom domain (root) deployment
     images: {
         unoptimized: true,
     },
