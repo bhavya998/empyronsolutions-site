@@ -4,8 +4,8 @@ const nextConfig = {
     images: {
         unoptimized: true,
     },
-    basePath: process.env.NODE_ENV === 'production' ? '/empyronsolutions-site' : '',
-    assetPrefix: process.env.NODE_ENV === 'production' ? '/empyronsolutions-site/' : '',
+    // Remove basePath for now to test
+    trailingSlash: true,
 };
 
 export default nextConfig;

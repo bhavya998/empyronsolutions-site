@@ -1,13 +1,12 @@
 "use client";
 
-import { useRef, useMemo } from "react";
+import { useRef, useMemo, useEffect } from "react";
 import { Canvas, useFrame } from "@react-three/fiber";
 import { EffectComposer, Bloom, ChromaticAberration, Noise } from "@react-three/postprocessing";
 import { BlendFunction } from "postprocessing";
 import * as THREE from "three";
 
 // --- VISIBLE DARK NEURAL FIELD ---
-// Adjusted to be VISIBLE but still DARKER than the original neon version.
 function NeuralField() {
     const points = useRef<THREE.Points>(null);
     const lines = useRef<THREE.LineSegments>(null);
@@ -18,8 +17,6 @@ function NeuralField() {
         const colors = new Float32Array(nodeCount * 3);
         const sizes = new Float32Array(nodeCount);
 
-        // DARK-MID GREENS (Visible on Black)
-        // #15803d is green-700, #166534 is green-800
         const colorPrimary = new THREE.Color("#15803d");
         const colorSecondary = new THREE.Color("#14532d");
 
@@ -33,7 +30,7 @@ function NeuralField() {
             colors[i * 3 + 1] = mixedColor.g;
             colors[i * 3 + 2] = mixedColor.b;
 
-            sizes[i] = Math.random() < 0.2 ? 0.25 : 0.12; // Slightly larger for visibility
+            sizes[i] = Math.random() < 0.2 ? 0.25 : 0.12;
         }
 
         const connectionPoints: number[] = [];
@@ -48,7 +45,7 @@ function NeuralField() {
                 const dz = z1 - positions[j * 3 + 2];
 
                 const distSq = dx * dx + dy * dy + dz * dz;
-                if (distSq < 14) { // Slightly increased connection distance
+                if (distSq < 14) {
                     connectionPoints.push(
                         x1, y1, z1,
                         positions[j * 3], positions[j * 3 + 1], positions[j * 3 + 2]
@@ -65,8 +62,22 @@ function NeuralField() {
         };
     }, []);
 
+    // Use imperative API to set geometry attributes
+    useEffect(() => {
+        if (points.current) {
+            const geometry = points.current.geometry;
+            geometry.setAttribute('position', new THREE.BufferAttribute(positions, 3));
+            geometry.setAttribute('color', new THREE.BufferAttribute(colors, 3));
+            geometry.setAttribute('size', new THREE.BufferAttribute(sizes, 1));
+        }
+        if (lines.current) {
+            const geometry = lines.current.geometry;
+            geometry.setAttribute('position', new THREE.BufferAttribute(connections, 3));
+        }
+    }, [positions, colors, sizes, connections]);
+
     useFrame((state) => {
-        const t = state.clock.getElapsedTime() * 0.08; // Slightly faster for liveliness
+        const t = state.clock.getElapsedTime() * 0.08;
         if (points.current) {
             points.current.rotation.y = t * 0.2;
             points.current.position.y = Math.sin(t) * 0.5;
@@ -80,19 +91,11 @@ function NeuralField() {
     return (
         <group>
             <points ref={points}>
-                <bufferGeometry>
-                    <bufferAttribute attach="attributes-position" count={positions.length / 3} array={positions} itemSize={3} />
-                    <bufferAttribute attach="attributes-color" count={colors.length / 3} array={colors} itemSize={3} />
-                    <bufferAttribute attach="attributes-size" count={sizes.length} array={sizes} itemSize={1} />
-                </bufferGeometry>
-                {/* Increased opacity to be visible */}
-                <pointsMaterial vertexColors size={0.15} transparent opacity={0.9} sizeAttenuation={true} />
+                <bufferGeometry />
+                <pointsMaterial vertexColors size={0.15} transparent opacity={0.9} sizeAttenuation />
             </points>
             <lineSegments ref={lines}>
-                <bufferGeometry>
-                    <bufferAttribute attach="attributes-position" count={connections.length / 3} array={connections} itemSize={3} />
-                </bufferGeometry>
-                {/* Visible lines but still subtle */}
+                <bufferGeometry />
                 <lineBasicMaterial color="#15803d" transparent opacity={0.15} />
             </lineSegments>
         </group>
@@ -130,7 +133,6 @@ function DataStreams() {
             {streams.map((s, i) => (
                 <mesh key={i} position={[s.x, s.y, s.z]}>
                     <cylinderGeometry args={[0.02, 0.02, s.length, 6]} />
-                    {/* Increased opacity */}
                     <meshBasicMaterial color="#166534" transparent opacity={0.5} />
                 </mesh>
             ))}
@@ -140,29 +142,27 @@ function DataStreams() {
 
 export default function FloatingShape() {
     return (
-        // Removed the opacity-30 class causing it to disappear
-        // Using opacity-100 (default) but controlling visibility via materials
         <div className="w-full h-full pointer-events-none opacity-80">
             <Canvas
                 camera={{ position: [0, 0, 18], fov: 60 }}
                 gl={{ antialias: false, alpha: true, powerPreference: "high-performance" }}
                 dpr={[1, 2]}
             >
-                <ambientLight intensity={0.6} /> {/* Increased light */}
+                <ambientLight intensity={0.6} />
 
                 <NeuralField />
                 <DataStreams />
 
-                <EffectComposer disableNormalPass>
+                <EffectComposer>
                     <Bloom
                         luminanceThreshold={0.1}
                         mipmapBlur
-                        intensity={0.8} // Restored some bloom
+                        intensity={0.8}
                         radius={0.4}
                         blendFunction={BlendFunction.SCREEN}
                     />
                     <Noise opacity={0.02} />
-                    <ChromaticAberration offset={[0.0004, 0.0004]} />
+                    <ChromaticAberration offset={new THREE.Vector2(0.0004, 0.0004)} />
                 </EffectComposer>
             </Canvas>
         </div>
