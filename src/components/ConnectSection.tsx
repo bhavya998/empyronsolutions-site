@@ -208,7 +208,8 @@ export default function ConnectSection() {
                                         onChange={(e) => setFormData({ ...formData, areaOfInterest: e.target.value })}
                                         onFocus={() => setFocusedField('areaOfInterest')}
                                         onBlur={() => setFocusedField(null)}
-                                        className="w-full py-4 pr-10 bg-transparent text-white appearance-none cursor-pointer outline-none"
+                                        className={`w-full py-4 pr-10 bg-transparent outline-none appearance-none cursor-pointer ${formData.areaOfInterest === "" ? "text-slate-600" : "text-white"
+                                            }`}
                                     >
                                         <option value="" disabled className="text-slate-600 bg-[#0a0a0a]">Select a topic...</option>
                                         <option value="Custom AI Agents" className="bg-[#0a0a0a]">Custom AI Agents</option>

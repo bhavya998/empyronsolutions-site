@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Space_Grotesk, Fraunces } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/Header";
@@ -32,6 +32,12 @@ export const metadata: Metadata = {
         title: "Empyron AI Solutions | Enterprise AI Infrastructure",
         description: "Autonomous intelligence for the modern enterprise.",
     },
+};
+
+export const viewport: Viewport = {
+    width: "device-width",
+    initialScale: 1,
+    themeColor: "#050505",
 };
 
 export default function RootLayout({
