@@ -1,175 +1,78 @@
 "use client";
 
-import { motion, useScroll, useTransform } from "framer-motion";
-import Navbar from "@/components/Navbar";
-import FloatingShape from "@/components/FloatingShape";
-import Services from "@/components/Services";
-import Projects from "@/components/Projects";
-import WhyUs from "@/components/WhyUs";
-import Testimonials from "@/components/Testimonials";
-import CTA from "@/components/CTA";
-import Footer from "@/components/Footer";
-import { ArrowRight, Play, Sparkles, TrendingUp, Zap, Shield, Globe } from "lucide-react";
-import { useRef } from "react";
+import { motion } from "framer-motion";
+import Link from "next/link";
+import Hero3D from "@/components/Hero3D";
+import ServicesSection from "@/components/ServicesSection";
+import EnterpriseSection from "@/components/EnterpriseSection";
+import ConnectSection from "@/components/ConnectSection";
+import { ArrowRight } from "lucide-react";
 
 export default function Home() {
-    const targetRef = useRef(null);
-    const { scrollYProgress } = useScroll({
-        target: targetRef,
-        offset: ["start start", "end start"],
-    });
-
-    const opacity = useTransform(scrollYProgress, [0, 0.6], [1, 0]);
-    const scale = useTransform(scrollYProgress, [0, 0.6], [1, 0.95]);
-    const y = useTransform(scrollYProgress, [0, 0.6], [0, 100]);
-
     return (
-        <main className="relative min-h-screen selection:bg-green-500/30">
-            <Navbar />
+        <main className="min-h-screen bg-[var(--color-slate-950)] selection:bg-[#b026ff]/30">
+            {/* HERO SECTION - Premium Dark */}
+            <section className="relative min-h-screen flex items-center overflow-hidden">
+                {/* Background Atmosphere - Signal Palette */}
+                <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(57,255,20,0.1),rgba(176,38,255,0.05),transparent_70%)] opacity-80" />
 
-            {/* HERO SECTION */}
-            <section ref={targetRef} className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden pt-24 pb-20">
-                {/* 3D Neural Field Background */}
-                <div className="absolute inset-0 z-0">
-                    <FloatingShape />
-                </div>
+                <div className="container mx-auto px-6 relative z-10 grid lg:grid-cols-2 gap-12 items-center">
 
-                {/* Hero Content */}
-                <motion.div
-                    style={{ opacity, scale, y }}
-                    className="relative z-10 w-full max-w-[90rem] mx-auto px-6 text-center"
-                >
-                    <motion.div
-                        initial={{ opacity: 0, y: 30 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-                        className="flex flex-col items-center"
-                    >
-                        {/* Premium Badge */}
-                        <motion.div
-                            initial={{ scale: 0.9, opacity: 0 }}
-                            animate={{ scale: 1, opacity: 1 }}
-                            transition={{ delay: 0.2, duration: 0.6 }}
-                            className="inline-flex items-center gap-3 px-6 py-2.5 rounded-full bg-green-500/10 border border-green-500/20 backdrop-blur-md mb-12 shadow-[0_0_20px_rgba(0,255,65,0.1)]"
-                        >
-                            <Sparkles className="w-4 h-4 text-green-400" />
-                            <span className="text-sm font-bold text-green-300 uppercase tracking-widest">Next-Gen AI Infrastructure</span>
-                        </motion.div>
-
-                        {/* Headline */}
-                        <h1 className="text-6xl md:text-8xl lg:text-9xl xl:text-[10rem] font-black mb-10 tracking-tighter leading-[0.9]">
-                            <span className="block text-slate-100">Building the</span>
-                            <span className="block shimmer text-green-500">Neural Future</span>
-                        </h1>
-
-                        {/* Subheadline */}
-                        <p className="max-w-3xl mx-auto text-slate-400 text-xl md:text-2xl font-medium leading-relaxed mb-14">
-                            Deploy <span className="text-green-400 font-semibold">autonomous agent networks</span> and
-                            enterprise LLM infrastructure engineered for infinite scale.
-                        </p>
-
-                        {/* Buttons */}
+                    {/* Left: Content */}
+                    <div className="max-w-2xl">
                         <motion.div
                             initial={{ opacity: 0, y: 20 }}
                             animate={{ opacity: 1, y: 0 }}
-                            transition={{ delay: 0.4, duration: 0.6 }}
-                            className="flex flex-col sm:flex-row gap-6 mb-24"
+                            transition={{ duration: 0.8 }}
                         >
-                            <button className="group px-10 py-5 btn-primary text-base uppercase tracking-widest flex items-center justify-center gap-3 font-bold hover:scale-105 transition-transform">
-                                Deploy Now
-                                <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-                            </button>
-                            <button className="group px-10 py-5 btn-secondary text-base uppercase tracking-widest flex items-center justify-center gap-3 font-bold hover:scale-105 transition-transform">
-                                <div className="w-8 h-8 rounded-full border border-green-500/50 flex items-center justify-center">
-                                    <Play className="w-3 h-3 text-green-400 ml-0.5" />
-                                </div>
-                                Live Demo
-                            </button>
-                        </motion.div>
 
-                        {/* Stats Grid */}
-                        <motion.div
-                            initial={{ opacity: 0 }}
-                            animate={{ opacity: 1 }}
-                            transition={{ delay: 0.6, duration: 0.8 }}
-                            className="grid grid-cols-2 md:grid-cols-4 gap-12 max-w-5xl mx-auto w-full border-t border-green-500/10 pt-12"
-                        >
-                            {[
-                                { label: "Uptime SLA", val: "99.99%", icon: Zap },
-                                { label: "Edge Nodes", val: "200+", icon: Globe },
-                                { label: "Latency", val: "<28ms", icon: TrendingUp },
-                                { label: "Compliance", val: "SOC 2", icon: Shield }
-                            ].map((stat, i) => (
-                                <div key={i} className="flex flex-col items-center gap-3 group">
-                                    <stat.icon className="w-6 h-6 text-green-500/50 group-hover:text-green-400 transition-colors" />
-                                    <div className="text-3xl font-black text-slate-200">{stat.val}</div>
-                                    <div className="text-[10px] font-bold text-slate-500 uppercase tracking-[0.2em]">{stat.label}</div>
-                                </div>
-                            ))}
+                            <h1 className="text-6xl lg:text-8xl font-bold tracking-tighter text-white mb-8 leading-[1.1]">
+                                Intelligence, <br />
+                                <span className="text-gradient-accent italic font-serif">Unbound.</span>
+                            </h1>
+
+                            <p className="text-lg text-slate-400 leading-relaxed mb-10 max-w-lg">
+                                We engineer the neural infrastructure for the next generation of autonomous enterprise systems. <br />
+                                <span className="text-white font-medium block mt-2">Scalable. Secure. Verifiable.</span>
+                            </p>
+
+                            <div className="flex flex-wrap gap-4">
+                                {/* Premium Glassmorphic Button */}
+                                <Link href="/#connect" className="group relative px-8 py-4 bg-white/5 backdrop-blur-xl border border-white/10 rounded-full overflow-hidden transition-all duration-300 hover:scale-105 hover:border-white/20 hover:shadow-[0_0_40px_-10px_rgba(176,38,255,0.5)] inline-flex items-center gap-3">
+                                    <div className="absolute inset-0 bg-gradient-to-r from-[#39ff14] via-[#00ffff] to-[#b026ff] opacity-0 group-hover:opacity-10 transition-opacity duration-500" />
+                                    <span className="relative z-10 flex items-center gap-3 text-white font-medium tracking-wide">
+                                        Start Leveraging AI
+                                        <ArrowRight className="w-4 h-4 text-[#39ff14] group-hover:translate-x-1 transition-transform" />
+                                    </span>
+                                </Link>
+                            </div>
                         </motion.div>
-                    </motion.div>
-                </motion.div>
+                    </div>
+
+                    {/* Right: 3D Visualization */}
+                    <div className="h-[600px] w-full relative">
+                        <Hero3D />
+                    </div>
+                </div>
             </section>
 
-            {/* CONTENT SECTIONS - MAX SPACED */}
-            <div className="relative z-10 bg-black/30 backdrop-blur-[2px]">
+            {/* SERVICES SECTION */}
+            <ServicesSection />
 
-                {/* Spacer - Increased to h-40 */}
-                <div className="h-32 md:h-40 bg-gradient-to-b from-transparent via-green-900/5 to-transparent" />
+            {/* SPACER */}
+            <div className="h-24 md:h-48 w-full" />
 
-                <section className="relative">
-                    <Services />
-                </section>
+            {/* ENTERPRISE OPERATIONS SECTION */}
+            <EnterpriseSection />
 
-                <div className="h-32 md:h-40" />
+            {/* SPACER */}
+            <div className="h-24 md:h-48 w-full" />
 
-                <section className="relative">
-                    <Projects />
-                </section>
+            {/* CONTACT / CONNECT SECTION */}
+            <ConnectSection />
 
-                <div className="h-32 md:h-40" />
-
-                <section className="relative">
-                    <WhyUs />
-                </section>
-
-                <div className="h-32 md:h-40" />
-
-                <section className="relative">
-                    <Testimonials />
-                </section>
-
-                <div className="h-32 md:h-40" />
-
-                <section className="relative">
-                    <CTA />
-                </section>
-
-                <Footer />
-
-                {/* EPIC FINALE - Full Width Animation BELOW Footer */}
-                <div className="w-full py-16 bg-black overflow-hidden border-t border-green-900/30">
-                    <motion.div
-                        className="flex whitespace-nowrap"
-                        initial={{ x: 0 }}
-                        animate={{ x: "-50%" }}
-                        transition={{ duration: 40, repeat: Infinity, ease: "linear" }}
-                    >
-                        {[...Array(4)].map((_, i) => (
-                            <h2
-                                key={i}
-                                className="text-[13vw] font-black uppercase text-transparent px-16 leading-none tracking-tighter"
-                                style={{
-                                    WebkitTextStroke: "1px #15803d",
-                                    fontFamily: "var(--font-sans)"
-                                }}
-                            >
-                                EMPYRON SOLUTIONS <span className="text-green-600/20">•</span>
-                            </h2>
-                        ))}
-                    </motion.div>
-                </div>
-            </div>
+            {/* SPACER BEFORE FOOTER */}
+            <div className="h-16 md:h-32 w-full" />
         </main>
     );
 }

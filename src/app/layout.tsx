@@ -1,5 +1,20 @@
 import type { Metadata } from "next";
+import { Space_Grotesk, Fraunces } from "next/font/google";
 import "./globals.css";
+import Header from "@/components/Header";
+import Footer from "@/components/Footer";
+
+const spaceGrotesk = Space_Grotesk({
+    subsets: ["latin"],
+    variable: "--font-sans",
+    display: "swap",
+});
+
+const fraunces = Fraunces({
+    subsets: ["latin"],
+    variable: "--font-serif",
+    display: "swap",
+});
 
 export const metadata: Metadata = {
     title: "Empyron AI Solutions | Enterprise-Grade AI Infrastructure",
@@ -25,16 +40,14 @@ export default function RootLayout({
     children: React.ReactNode;
 }>) {
     return (
-        <html lang="en" className="dark scroll-smooth">
-            <head>
-                <link rel="preconnect" href="https://fonts.googleapis.com" />
-                <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-                <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
-            </head>
+        <html lang="en" className={`${spaceGrotesk.variable} ${fraunces.variable} dark scroll-smooth`}>
             <body className="antialiased">
                 <div className="bg-grid" />
-                <div className="bg-radial" />
+                <div className="bg-aurora" />
+                <div className="bg-noise" />
+                <Header />
                 {children}
+                <Footer />
             </body>
         </html>
     );
