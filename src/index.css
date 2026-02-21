@@ -1,0 +1,43 @@
+@import "tailwindcss";
+
+@theme {
+  --color-cyan-500: #00f0ff;
+  /* Electric Cyan */
+  --color-purple-500: #ff107a;
+  /* Vibrant Neon Pink */
+  --color-brand-dark: #020617;
+  /* Very dark slate for cosmic void */
+
+  --font-sans: 'Outfit', system-ui, sans-serif;
+}
+
+:root {
+  background-color: var(--color-brand-dark);
+  color: #ffffff;
+  font-family: var(--font-sans);
+}
+
+body {
+  margin: 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+  background-color: var(--color-brand-dark);
+  color: white;
+}
+
+/* Glassmorphism utility */
+.glass {
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.text-gradient {
+  background: linear-gradient(to right, var(--color-cyan-500), var(--color-purple-500));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: transparent;
+}
