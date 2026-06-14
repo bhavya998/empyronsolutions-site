@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 
 const stats = [
     { value: '7', label: 'Projects Delivered', desc: 'AI/ML solutions shipped for paying clients since mid-2024.' },
-    { value: '6', label: 'Industries', desc: 'Fintech, ecommerce, logistics, legal, health, SaaS.' },
+    { value: '~3', label: 'Industries', desc: 'Ecommerce, SaaS, and logistics.' },
     { value: '80%', label: 'Client Retention', desc: 'Most clients return for additional projects and ongoing work.' },
     { value: '3-6', label: 'Weeks to Ship', desc: 'Average timeline from kickoff to production deployment.' },
 ];

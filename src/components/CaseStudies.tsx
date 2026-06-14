@@ -64,6 +64,10 @@ export const CaseStudies: React.FC = () => {
                         </motion.div>
                     ))}
                 </div>
+
+                <div className="text-center mt-12">
+                    <p className="text-gray-500 text-lg font-light">...and many more data &amp; AI/ML projects.</p>
+                </div>
             </div>
         </section>
     );
