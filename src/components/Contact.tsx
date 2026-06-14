@@ -31,10 +31,10 @@ export const Contact: React.FC = () => {
                     {/* Info Side */}
                     <div>
                         <h2 className="text-4xl md:text-5xl font-black mb-6">
-                            Let&apos;s <span className="text-gradient">Work Together</span>
+                            Let&apos;s <span className="text-gradient">Talk</span>
                         </h2>
                         <p className="text-gray-400 text-lg mb-10 max-w-lg font-light">
-                            Have a project in mind? Reach out directly and let&apos;s discuss how I can help bring your AI and data ideas to life.
+                            I take on 1-2 projects at a time to give each client real attention. If you have a data or AI problem worth solving, reach out.
                         </p>
 
                         <div className="space-y-6">
@@ -87,7 +87,7 @@ export const Contact: React.FC = () => {
 
                         <button
                             type="submit"
-                            className="w-full py-4 bg-gradient-to-r from-cyan-500 to-purple-500 rounded-xl text-white font-bold text-lg hover:shadow-[0_0_20px_rgba(0,240,255,0.4)] transition-shadow flex items-center justify-center gap-2"
+                            className="w-full py-4 bg-gradient-to-r from-cyan-500 to-purple-500 rounded-xl text-white font-bold text-lg transition-all hover:opacity-90 flex items-center justify-center gap-2"
                         >
                             <span>Send Message</span>
                             <Send className="w-5 h-5" />

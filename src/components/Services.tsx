@@ -6,32 +6,32 @@ const services = [
     {
         icon: <Brain className="w-8 h-8 text-cyan-500" />,
         title: 'Custom AI & ML Models',
-        desc: 'Custom development and fine-tuning of ML models to solve real problems — from churn prediction to recommendation engines.',
+        desc: 'Custom ML models built for your data and your problem — churn prediction, demand forecasting, classification, recommendation systems.',
     },
     {
         icon: <Network className="w-8 h-8 text-purple-500" />,
         title: 'Agentic RAG Pipelines',
-        desc: 'Retrieval-augmented generation systems that let you chat with your own documents, manuals, and knowledge bases.',
+        desc: 'Let users query your documents in plain English. I build RAG systems that turn PDFs, manuals, and knowledge bases into conversational intelligence.',
     },
     {
         icon: <Cpu className="w-8 h-8 text-cyan-500" />,
         title: 'End-to-End AI Inferencing',
-        desc: 'Deploy and integrate state-of-the-art LLMs and AI models into your existing workflows and products.',
+        desc: 'Integrate GPT-4, Claude, or open-source models into your product. Fine-tuned for your domain, deployed at a cost that makes sense for your scale.',
     },
     {
         icon: <Database className="w-8 h-8 text-purple-500" />,
         title: 'Data Engineering',
-        desc: 'Clean, reliable ETL pipelines and data architecture to unify your data sources and make them analysis-ready.',
+        desc: 'Clean, reliable pipelines that actually run. I unify your messy data sources — CRMs, databases, APIs — into one trustworthy source of truth.',
     },
     {
         icon: <BarChart3 className="w-8 h-8 text-cyan-500" />,
         title: 'Industrial Predictive Analytics',
-        desc: 'Forecasting and optimization models that help you make data-driven decisions and reduce operational risk.',
+        desc: 'Stop guessing. Forecasting models that give you data-driven answers on revenue, customer churn, and demand — built for your specific business context.',
     },
     {
         icon: <ShieldCheck className="w-8 h-8 text-purple-500" />,
         title: 'Cognitive Enterprise Automation',
-        desc: 'Build proofs-of-concept and deploy AI agents that automate repetitive multi-step tasks across your tools and systems.',
+        desc: 'Automate repetitive work. AI agents that handle triage, data entry, and multi-step processes — freeing you to focus on decisions, not drudgery.',
     },
 ];
 
@@ -40,9 +40,9 @@ export const Services: React.FC = () => {
         <section id="services" className="py-24 relative z-10 bg-brand-dark overflow-hidden">
             <div className="container mx-auto px-6 md:px-12 relative z-20">
                 <div className="text-center max-w-3xl mx-auto mb-20">
-                    <h2 className="text-4xl md:text-5xl font-black mb-6">Capabilities & <span className="text-gradient">Innovations</span></h2>
+                    <h2 className="text-4xl md:text-5xl font-black mb-6">What I <span className="text-gradient">Build</span></h2>
                     <p className="text-gray-400 text-lg">
-                        I build practical AI and data solutions tailored to your business needs.
+                        Practical AI and data solutions — no buzzwords, no black boxes.
                     </p>
                 </div>
 

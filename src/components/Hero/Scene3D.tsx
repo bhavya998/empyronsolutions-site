@@ -15,9 +15,9 @@ const NeuralCore = () => {
         const _colors = new Float32Array(count * 3);
         const _randoms = new Float32Array(count);
 
-        const color1 = new THREE.Color("#ff107a"); // Vibrant Neon Pink Core
-        const color2 = new THREE.Color("#00f0ff"); // Electric Cyan Halo
-        const color3 = new THREE.Color("#6018fa"); // Deep Cyber Purple Outer
+        const color1 = new THREE.Color("#10b981"); // Emerald Core
+        const color2 = new THREE.Color("#34d399"); // Light Emerald Halo
+        const color3 = new THREE.Color("#06b6d4"); // Teal Outer
 
         for (let i = 0; i < count; i++) {
             // Distribute on a complex accretion disk/neural network shape

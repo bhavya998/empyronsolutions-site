@@ -31,7 +31,7 @@ export const Hero: React.FC = () => {
                         className="text-6xl md:text-8xl lg:text-[7rem] font-black leading-[1.05] tracking-tighter text-white mb-6"
                     >
                         Architecting <br />
-                        <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-500 to-purple-500 drop-shadow-[0_0_40px_rgba(0,240,255,0.5)]">
+                        <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-500 to-purple-500">
                             Intelligence.
                         </span>
                     </motion.h1>
@@ -42,7 +42,7 @@ export const Hero: React.FC = () => {
                         transition={{ duration: 1, delay: 0.4, ease: [0.16, 1, 0.3, 1] }}
                         className="text-lg md:text-2xl text-white drop-shadow-[0_5px_15px_rgba(0,0,0,1)] bg-black/60 md:bg-black/20 backdrop-blur-md p-5 rounded-2xl border border-white/10 md:border-transparent mb-12 max-w-2xl font-semibold leading-relaxed"
                     >
-                        Freelance engineering for startups, small businesses, and solopreneurs — AI, ML, and data solutions that ship.
+                        I build AI and data solutions for startups, small businesses, and solopreneurs. No bloated teams, no inflated timelines — just an engineer who ships.
                     </motion.p>
 
                     <motion.div
@@ -51,13 +51,13 @@ export const Hero: React.FC = () => {
                         transition={{ duration: 1, delay: 0.6, ease: [0.16, 1, 0.3, 1] }}
                         className="flex flex-col sm:flex-row gap-6 pointer-events-auto"
                     >
-                        <a href="#services" className="group relative px-8 py-5 bg-white text-slate-950 font-bold rounded-full overflow-hidden transition-all hover:scale-105 flex items-center justify-center gap-3 shadow-[0_0_30px_rgba(255,255,255,0.2)]">
-                            <span className="relative z-10 text-lg">Explore Services</span>
+                        <a href="#work" className="group relative px-8 py-5 bg-white text-slate-950 font-bold rounded-full overflow-hidden transition-all hover:scale-105 flex items-center justify-center gap-3 shadow-[0_0_30px_rgba(255,255,255,0.2)]">
+                            <span className="relative z-10 text-lg">See My Work</span>
                             <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform relative z-10" />
                             <div className="absolute inset-0 bg-gradient-to-r from-cyan-500 to-purple-500 opacity-0 group-hover:opacity-20 transition-opacity"></div>
                         </a>
                         <a href="#contact" className="px-8 py-5 bg-transparent border border-slate-700 text-white font-bold rounded-full hover:bg-white/5 hover:border-slate-500 transition-all text-center text-lg shadow-[0_0_30px_rgba(0,0,0,0.5)] backdrop-blur-sm">
-                            Let&apos;s Work Together
+                            Start a Project
                         </a>
                     </motion.div>
                 </div>

@@ -32,8 +32,8 @@ export const Header: React.FC = () => {
                             {item}
                         </a>
                     ))}
-                    <a href="#contact" className="bg-gradient-to-r from-cyan-500 to-purple-500 text-white px-6 py-2.5 rounded-full font-medium hover:scale-105 hover:shadow-[0_0_15px_rgba(0,240,255,0.4)] transition-all flex items-center justify-center">
-                        Get Started
+                    <a href="#contact" className="bg-gradient-to-r from-cyan-500 to-purple-500 text-white px-6 py-2.5 rounded-full font-medium hover:scale-105 transition-all flex items-center justify-center">
+                        Start a Project
                     </a>
                 </nav>
 

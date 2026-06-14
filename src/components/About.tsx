@@ -29,16 +29,18 @@ export const About: React.FC = () => {
                             <p className="text-cyan-400 text-lg font-medium mb-6">Independent Data &amp; AI Engineer</p>
 
                             <p className="text-gray-300 leading-relaxed text-lg mb-8 font-light">
-                                I&apos;m an independent Data &amp; AI Engineer operating under the Empyron Solutions brand
-                                since mid-2024. I work directly with startups, small businesses, and solopreneurs
-                                to build practical AI and data solutions — from RAG pipelines and ML models to
-                                ETL workflows and LLM-powered applications.
+                                I&apos;m an independent Data &amp; AI Engineer based in Koblenz, Germany, operating under
+                                the Empyron Solutions brand since mid-2024. I work directly with startups, small
+                                businesses, and solopreneurs to build AI and data systems that solve real problems
+                                — from RAG pipelines and ML models to ETL workflows and LLM-powered applications.
                             </p>
 
                             <p className="text-gray-300 leading-relaxed text-lg mb-10 font-light">
-                                I take a hands-on, project-based approach: you get direct access to the engineer
-                                building your solution, not a layer of account managers. Every engagement is
-                                tailored to your specific goals and budget.
+                                Before going independent, I built production AI systems in enterprise settings.
+                                Now I bring that same engineering rigor to smaller teams — without the overhead,
+                                the inflated timelines, or the account-manager runaround. You work directly with
+                                the engineer building your solution. Every project is scoped, priced, and
+                                delivered with full transparency.
                             </p>
 
                             <div className="space-y-4">
