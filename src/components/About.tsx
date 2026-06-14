@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { User, MapPin, Briefcase, Linkedin } from 'lucide-react';
+import { MapPin, Briefcase, Linkedin } from 'lucide-react';
 
 export const About: React.FC = () => {
     return (
@@ -19,8 +19,8 @@ export const About: React.FC = () => {
                 >
                     <div className="flex flex-col md:flex-row gap-10 items-start">
                         <div className="flex-shrink-0">
-                            <div className="w-24 h-24 rounded-2xl bg-gradient-to-br from-cyan-500 to-purple-500 flex items-center justify-center">
-                                <User className="w-10 h-10 text-white" />
+                            <div className="w-24 h-24 rounded-full overflow-hidden ring-2 ring-cyan-500/30 flex-shrink-0">
+                                <img src="/bhavya.jpg" alt="Bhavya Shah" className="w-full h-full object-cover" />
                             </div>
                         </div>
 
