@@ -21,7 +21,7 @@ export const Hero: React.FC = () => {
                         className="inline-flex items-center mb-6 px-4 py-2 rounded-full border border-cyan-500/30 bg-cyan-500/5 text-cyan-500 text-sm font-semibold tracking-[0.2em] uppercase backdrop-blur-md"
                     >
                         <span className="w-2 h-2 rounded-full bg-cyan-500 mr-3 animate-pulse"></span>
-                        Next-Gen AI & Data
+                        Independent Data &amp; AI Consulting
                     </motion.div>
 
                     <motion.h1
@@ -42,7 +42,7 @@ export const Hero: React.FC = () => {
                         transition={{ duration: 1, delay: 0.4, ease: [0.16, 1, 0.3, 1] }}
                         className="text-lg md:text-2xl text-white drop-shadow-[0_5px_15px_rgba(0,0,0,1)] bg-black/60 md:bg-black/20 backdrop-blur-md p-5 rounded-2xl border border-white/10 md:border-transparent mb-12 max-w-2xl font-semibold leading-relaxed"
                     >
-                        Empowering your enterprise with cutting-edge AI models, predictive data analytics, and highly scalable technical architectures.
+                        Freelance engineering for startups, small businesses, and solopreneurs — AI, ML, and data solutions that ship.
                     </motion.p>
 
                     <motion.div
@@ -57,7 +57,7 @@ export const Hero: React.FC = () => {
                             <div className="absolute inset-0 bg-gradient-to-r from-cyan-500 to-purple-500 opacity-0 group-hover:opacity-20 transition-opacity"></div>
                         </a>
                         <a href="#contact" className="px-8 py-5 bg-transparent border border-slate-700 text-white font-bold rounded-full hover:bg-white/5 hover:border-slate-500 transition-all text-center text-lg shadow-[0_0_30px_rgba(0,0,0,0.5)] backdrop-blur-sm">
-                            Transform your workforce with AI
+                            Let&apos;s Work Together
                         </a>
                     </motion.div>
                 </div>

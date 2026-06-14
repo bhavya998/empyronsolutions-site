@@ -2,7 +2,7 @@
 import { Header } from './components/Header';
 import { Hero } from './components/Hero/Hero';
 import { Services } from './components/Services';
-import { GlobalOperations } from './components/GlobalOperations';
+import { About } from './components/About';
 import { Contact } from './components/Contact';
 import { Footer } from './components/Footer';
 
@@ -12,7 +12,7 @@ function App() {
       <Header />
       <Hero />
       <Services />
-      <GlobalOperations />
+      <About />
       <Contact />
       <Footer />
     </div>

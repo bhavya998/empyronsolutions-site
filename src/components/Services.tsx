@@ -6,32 +6,32 @@ const services = [
     {
         icon: <Brain className="w-8 h-8 text-cyan-500" />,
         title: 'Custom AI & ML Models',
-        desc: 'Development and bespoke fine-tuning of machine learning algorithms mapped precisely to your industry requirements.',
+        desc: 'Custom development and fine-tuning of ML models to solve real problems — from churn prediction to recommendation engines.',
     },
     {
         icon: <Network className="w-8 h-8 text-purple-500" />,
         title: 'Agentic RAG Pipelines',
-        desc: 'Intelligent retrieval-augmented generation systems that securely query your proprietary manuals, docs, and datasets.',
+        desc: 'Retrieval-augmented generation systems that let you chat with your own documents, manuals, and knowledge bases.',
     },
     {
         icon: <Cpu className="w-8 h-8 text-cyan-500" />,
         title: 'End-to-End AI Inferencing',
-        desc: 'Full-scale AI model inferencing and seamless enterprise deployment utilizing state-of-the-art frontier models.',
+        desc: 'Deploy and integrate state-of-the-art LLMs and AI models into your existing workflows and products.',
     },
     {
         icon: <Database className="w-8 h-8 text-purple-500" />,
         title: 'Data Engineering',
-        desc: 'Scalable, cloud-agnostic ETLs and robust architecture designed to integrate and unify diverse enterprise data sources.',
+        desc: 'Clean, reliable ETL pipelines and data architecture to unify your data sources and make them analysis-ready.',
     },
     {
         icon: <BarChart3 className="w-8 h-8 text-cyan-500" />,
         title: 'Industrial Predictive Analytics',
-        desc: 'Actionable forecasting and optimization models to drive operational efficiency, mitigate risks, and maximize ROI.',
+        desc: 'Forecasting and optimization models that help you make data-driven decisions and reduce operational risk.',
     },
     {
         icon: <ShieldCheck className="w-8 h-8 text-purple-500" />,
         title: 'Cognitive Enterprise Automation',
-        desc: 'Build PoCs and deploy resilient, autonomous AI agents orchestrating complex multi-step workflows across your business systems.',
+        desc: 'Build proofs-of-concept and deploy AI agents that automate repetitive multi-step tasks across your tools and systems.',
     },
 ];
 
@@ -42,7 +42,7 @@ export const Services: React.FC = () => {
                 <div className="text-center max-w-3xl mx-auto mb-20">
                     <h2 className="text-4xl md:text-5xl font-black mb-6">Capabilities & <span className="text-gradient">Innovations</span></h2>
                     <p className="text-gray-400 text-lg">
-                        We architect intelligence into every facet of your business workflow.
+                        I build practical AI and data solutions tailored to your business needs.
                     </p>
                 </div>
 
