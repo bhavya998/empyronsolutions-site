@@ -2,10 +2,10 @@ import React from 'react';
 import { motion } from 'framer-motion';
 
 const stats = [
-    { value: '12+', label: 'Projects Delivered', desc: 'AI/ML solutions shipped for paying clients since mid-2024.' },
+    { value: '7', label: 'Projects Delivered', desc: 'AI/ML solutions shipped for paying clients since mid-2024.' },
     { value: '6', label: 'Industries', desc: 'Fintech, ecommerce, logistics, legal, health, SaaS.' },
     { value: '80%', label: 'Client Retention', desc: 'Most clients return for additional projects and ongoing work.' },
-    { value: '2-8', label: 'Weeks to Ship', desc: 'Typical timeline from kickoff to production deployment.' },
+    { value: '3-6', label: 'Weeks to Ship', desc: 'Average timeline from kickoff to production deployment.' },
 ];
 
 export const Stats: React.FC = () => {
