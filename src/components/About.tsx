@@ -20,7 +20,7 @@ export const About: React.FC = () => {
                     <div className="flex flex-col md:flex-row gap-10 items-start">
                         <div className="flex-shrink-0">
                             <div className="w-24 h-24 rounded-full overflow-hidden ring-2 ring-cyan-500/30 flex-shrink-0">
-                                <img src="/bhavya.jpg" alt="Bhavya Shah" className="w-full h-full object-cover" />
+                                <img src="/bhavya.jpg" alt="Bhavya Shah" className="w-full h-full object-cover object-top" />
                             </div>
                         </div>
 

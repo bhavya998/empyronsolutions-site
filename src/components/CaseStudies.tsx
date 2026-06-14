@@ -1,28 +1,35 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { FileText, BarChart3, Database } from 'lucide-react';
+import { FileText, Workflow, Image, Cpu } from 'lucide-react';
 
 const cases = [
     {
         icon: <FileText className="w-7 h-7 text-cyan-500" />,
         tag: 'RAG Pipeline',
         title: 'Document Intelligence for a Legal Practice',
-        desc: 'Built a retrieval-augmented generation system that lets a law firm query thousands of case files and contracts in natural language. Replaced hours of manual document search with instant, cited answers.',
-        result: '80% reduction in document search time',
+        desc: 'Built a LangChain + ChromaDB RAG system for a small German law firm to query 2,000+ case files and contracts in natural language. Chunked and embedded legal documents, added citation tracking, and deployed on a Hetzner VPS. What used to take an afternoon of manual searching now takes seconds.',
+        result: 'Hours of document search eliminated',
     },
     {
-        icon: <BarChart3 className="w-7 h-7 text-purple-500" />,
-        tag: 'ML Forecasting',
-        title: 'Demand Forecasting for a D2C Brand',
-        desc: 'Built a weekly SKU-level demand forecasting model for a direct-to-consumer ecommerce brand. Integrated predictions into their Shopify inventory workflow to reduce stockouts and overstock.',
-        result: '30% reduction in inventory holding costs',
+        icon: <Workflow className="w-7 h-7 text-purple-500" />,
+        tag: 'n8n Automation',
+        title: 'AI-Powered Operations for a D2C Brand',
+        desc: 'Designed n8n workflows integrating LLM steps for a Shopify brand processing 200+ orders/day. Automated order validation, customer notification triage, and inventory alerts — replacing a patchwork of Zapier zaps and manual Slack messages that kept breaking.',
+        result: '80% of manual ops tasks automated',
     },
     {
-        icon: <Database className="w-7 h-7 text-cyan-500" />,
-        tag: 'Data Engineering',
-        title: 'Multi-Channel Analytics Pipeline',
-        desc: 'Designed and deployed ETL pipelines unifying Shopify, Meta Ads, and Google Analytics data into a single reporting layer. Automated weekly dashboards that previously took 4+ hours of manual Excel work.',
-        result: '4 hours/week saved, now real-time',
+        icon: <Image className="w-7 h-7 text-cyan-500" />,
+        tag: 'Stable Diffusion',
+        title: 'Custom Product Imagery for Ecommerce',
+        desc: 'Fine-tuned Stable Diffusion XL on a fashion brand\'s product catalog to generate on-brand lifestyle shots from simple flat-lay photos. Eliminated the need for costly photoshoots for new SKU drops. Deployed as a lightweight Gradio app the client\'s team uses directly.',
+        result: 'Photoshoot costs cut by 60%',
+    },
+    {
+        icon: <Cpu className="w-7 h-7 text-purple-500" />,
+        tag: 'SLM Fine-Tuning',
+        title: 'On-Device Chatbot for a SaaS Startup',
+        desc: 'Fine-tuned Phi-3-mini on a SaaS company\'s support docs and chat logs to power their in-app assistant. Optimized with 4-bit quantization to run under 2GB VRAM, keeping inference costs near zero. Handles 70% of Tier-1 support queries without human escalation.',
+        result: '70% of support queries resolved autonomously',
     },
 ];
 
@@ -35,14 +42,14 @@ export const CaseStudies: React.FC = () => {
                     <p className="text-gray-400 text-lg">Real projects. Real clients. Real results.</p>
                 </div>
 
-                <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-5xl mx-auto">
                     {cases.map((item, i) => (
                         <motion.div
                             key={i}
                             initial={{ opacity: 0, y: 20 }}
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true, margin: "-50px" }}
-                            transition={{ duration: 0.5, delay: i * 0.15 }}
+                            transition={{ duration: 0.5, delay: i * 0.1 }}
                             className="glass p-8 rounded-2xl flex flex-col group hover:border-white/20 transition-all"
                         >
                             <div className="mb-4 inline-block p-3 rounded-xl bg-white/5 border border-white/10">
