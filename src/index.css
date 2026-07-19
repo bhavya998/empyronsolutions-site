@@ -1,14 +1,14 @@
 @import "tailwindcss";
 
 @theme {
-  --color-brand: #10b981;
-  /* Emerald */
-  --color-brand-light: #34d399;
-  /* Light emerald */
-  --color-brand-deep: #059669;
-  /* Deep emerald */
-  --color-brand-dark: #020617;
-  /* Very dark slate for cosmic void */
+  --color-brand: #8b5cf6;
+  /* Violet */
+  --color-brand-light: #22d3ee;
+  /* Cyan */
+  --color-brand-deep: #06b6d4;
+  /* Deep cyan */
+  --color-brand-dark: #050214;
+  /* Deep indigo-black cosmic void */
 
   --font-sans: 'Outfit', system-ui, sans-serif;
 }
@@ -25,7 +25,7 @@ html {
   scroll-padding-top: 5rem;
   /* Firefox scrollbar */
   scrollbar-width: thin;
-  scrollbar-color: #1e293b var(--color-brand-dark);
+  scrollbar-color: #1e1b4b var(--color-brand-dark);
 }
 
 body {
@@ -37,13 +37,13 @@ body {
   color: white;
 }
 
-/* Emerald text selection */
+/* Violet text selection */
 ::selection {
-  background: rgba(16, 185, 129, 0.35);
+  background: rgba(139, 92, 246, 0.4);
   color: #ffffff;
 }
 
-/* Slim dark scrollbar, emerald on hover */
+/* Slim dark scrollbar, violet on hover */
 ::-webkit-scrollbar {
   width: 10px;
 }
@@ -51,7 +51,7 @@ body {
   background: var(--color-brand-dark);
 }
 ::-webkit-scrollbar-thumb {
-  background: #1e293b;
+  background: #1e1b4b;
   border-radius: 8px;
   border: 2px solid var(--color-brand-dark);
 }

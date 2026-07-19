@@ -15,9 +15,9 @@ const generateGalaxy = (count: number): [Float32Array, Float32Array, Float32Arra
     const colors = new Float32Array(count * 3);
     const randoms = new Float32Array(count);
 
-    const color1 = new THREE.Color("#10b981"); // Emerald Core
-    const color2 = new THREE.Color("#34d399"); // Light Emerald Halo
-    const color3 = new THREE.Color("#06b6d4"); // Teal Outer
+    const color1 = new THREE.Color("#8b5cf6"); // Violet Core
+    const color2 = new THREE.Color("#a78bfa"); // Light Violet Halo
+    const color3 = new THREE.Color("#06b6d4"); // Cyan Outer
 
     for (let i = 0; i < count; i++) {
         // Distribute on a complex accretion disk/neural network shape
@@ -194,7 +194,7 @@ export const Scene3D: React.FC = () => {
                 gl={{ antialias: false, alpha: false, powerPreference: "high-performance" }}
             >
                 <ResponsiveCamera />
-                <color attach="background" args={['#020617']} />
+                <color attach="background" args={['#050214']} />
 
                 <NeuralCore />
 
