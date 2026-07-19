@@ -3,64 +3,72 @@ import { Canvas, useFrame } from '@react-three/fiber';
 import * as THREE from 'three';
 import { EffectComposer, Bloom } from '@react-three/postprocessing';
 
+// Optimized particle count for high frame rates and a sleek look
+const PARTICLE_COUNT = 40000;
+
+/**
+ * Builds the accretion-disk galaxy geometry data once at module scope.
+ * Keeps impure random generation out of the component render path.
+ */
+const generateGalaxy = (count: number): [Float32Array, Float32Array, Float32Array] => {
+    const positions = new Float32Array(count * 3);
+    const colors = new Float32Array(count * 3);
+    const randoms = new Float32Array(count);
+
+    const color1 = new THREE.Color("#10b981"); // Emerald Core
+    const color2 = new THREE.Color("#34d399"); // Light Emerald Halo
+    const color3 = new THREE.Color("#06b6d4"); // Teal Outer
+
+    for (let i = 0; i < count; i++) {
+        // Distribute on a complex accretion disk/neural network shape
+        const r = Math.random();
+
+        // Focus more particles towards the center (Gravitational pull / core logic)
+        const radius = Math.pow(r, 2.0) * 12.0;
+
+        const theta = Math.random() * Math.PI * 2;
+        const phi = Math.acos((Math.random() * 2) - 1);
+
+        // Squeeze Y to make an accretion disk/galaxy plane
+        let x = radius * Math.sin(phi) * Math.cos(theta);
+        let y = radius * Math.cos(phi) * 0.15 + (Math.random() - 0.5) * 0.5; // Thin disk with slight fuzz
+        let z = radius * Math.sin(phi) * Math.sin(theta);
+
+        // Create an Event Horizon / Inner Core void
+        if (radius < 2.0) {
+            // Push particles out to the event horizon edge
+            const scale = 2.0 / (radius + 0.1);
+            x *= scale;
+            y *= scale;
+            z *= scale;
+        }
+
+        positions.set([x, y, z], i * 3);
+
+        // Interpolate colors based on angular position and radius
+        const mixColor = color1.clone().lerp(color2, Math.sin(theta * 3.0 + radius) * 0.5 + 0.5);
+
+        // Fade to dark void at the outer galactic edges
+        if (radius > 10.0) {
+            mixColor.lerp(color3, (radius - 10.0) / 2.0);
+        }
+
+        colors.set([mixColor.r, mixColor.g, mixColor.b], i * 3);
+
+        // Random offset for organic, chaotic movement
+        randoms[i] = Math.random();
+    }
+
+    return [positions, colors, randoms];
+};
+
+const [GALAXY_POSITIONS, GALAXY_COLORS, GALAXY_RANDOMS] = generateGalaxy(PARTICLE_COUNT);
+
 const NeuralCore = () => {
     const particlesRef = useRef<THREE.Points>(null);
     const materialRef = useRef<THREE.ShaderMaterial>(null);
 
-    // Optimized particle count for high frame rates and a sleek look
-    const count = 40000;
-
-    const [positions, colors, randoms] = useMemo(() => {
-        const _positions = new Float32Array(count * 3);
-        const _colors = new Float32Array(count * 3);
-        const _randoms = new Float32Array(count);
-
-        const color1 = new THREE.Color("#10b981"); // Emerald Core
-        const color2 = new THREE.Color("#34d399"); // Light Emerald Halo
-        const color3 = new THREE.Color("#06b6d4"); // Teal Outer
-
-        for (let i = 0; i < count; i++) {
-            // Distribute on a complex accretion disk/neural network shape
-            const r = Math.random();
-
-            // Focus more particles towards the center (Gravitational pull / core logic)
-            const radius = Math.pow(r, 2.0) * 12.0;
-
-            const theta = Math.random() * Math.PI * 2;
-            const phi = Math.acos((Math.random() * 2) - 1);
-
-            // Squeeze Y to make an accretion disk/galaxy plane
-            let x = radius * Math.sin(phi) * Math.cos(theta);
-            let y = radius * Math.cos(phi) * 0.15 + (Math.random() - 0.5) * 0.5; // Thin disk with slight fuzz
-            let z = radius * Math.sin(phi) * Math.sin(theta);
-
-            // Create an Event Horizon / Inner Core void
-            if (radius < 2.0) {
-                // Push particles out to the event horizon edge
-                const scale = 2.0 / (radius + 0.1);
-                x *= scale;
-                y *= scale;
-                z *= scale;
-            }
-
-            _positions.set([x, y, z], i * 3);
-
-            // Interpolate colors based on angular position and radius
-            let mixColor = color1.clone().lerp(color2, Math.sin(theta * 3.0 + radius) * 0.5 + 0.5);
-
-            // Fade to dark void at the outer galactic edges
-            if (radius > 10.0) {
-                mixColor.lerp(color3, (radius - 10.0) / 2.0);
-            }
-
-            _colors.set([mixColor.r, mixColor.g, mixColor.b], i * 3);
-
-            // Random offset for organic, chaotic movement
-            _randoms[i] = Math.random();
-        }
-
-        return [_positions, _colors, _randoms];
-    }, [count]);
+    const [positions, colors, randoms] = [GALAXY_POSITIONS, GALAXY_COLORS, GALAXY_RANDOMS];
 
     // Custom Shaders defining God-Level aesthetic logic
     const uniforms = useMemo(() => ({
@@ -182,6 +190,7 @@ export const Scene3D: React.FC = () => {
         <div className="w-full h-full absolute inset-0 bg-brand-dark">
             <Canvas
                 camera={{ position: [0, 5, 14], fov: 60 }}
+                dpr={[1, 1.75]}
                 gl={{ antialias: false, alpha: false, powerPreference: "high-performance" }}
             >
                 <ResponsiveCamera />

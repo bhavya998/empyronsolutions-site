@@ -25,7 +25,10 @@ export const Contact: React.FC = () => {
 
     return (
         <section id="contact" className="py-24 relative overflow-hidden bg-gradient-to-b from-brand-dark to-black border-t border-white/5">
-            <div className="container mx-auto px-6 md:px-12">
+            {/* Soft ambient glow */}
+            <div className="absolute -bottom-40 -left-40 w-[600px] h-[400px] bg-brand/5 blur-[130px] rounded-full pointer-events-none" />
+
+            <div className="container mx-auto px-6 md:px-12 relative z-10">
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
 
                     {/* Info Side */}
@@ -39,8 +42,8 @@ export const Contact: React.FC = () => {
 
                         <div className="space-y-6">
                             {[
-                                { icon: <Mail className="text-cyan-500 w-6 h-6" />, text: 'bhavya@empyronsolutions.com' },
-                                { icon: <MapPin className="text-cyan-500 w-6 h-6" />, text: 'Koblenz, Germany' },
+                                { icon: <Mail className="text-brand w-6 h-6" />, text: 'bhavya@empyronsolutions.com' },
+                                { icon: <MapPin className="text-brand w-6 h-6" />, text: 'Koblenz, Germany' },
                             ].map((item, index) => (
                                 <div key={index} className="flex items-center gap-4 text-gray-300">
                                     <div className="p-3 glass rounded-full">{item.icon}</div>
@@ -62,7 +65,7 @@ export const Contact: React.FC = () => {
                                 onChange={handleChange}
                                 placeholder="Your Name"
                                 required
-                                className="flex-1 bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white placeholder-gray-500 focus:outline-none focus:border-cyan-500 focus:ring-1 focus:ring-cyan-500 transition-all font-light"
+                                className="flex-1 bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white placeholder-gray-500 focus:outline-none focus:border-brand focus:ring-1 focus:ring-brand transition-all font-light"
                             />
                             <input
                                 type="email"
@@ -71,7 +74,7 @@ export const Contact: React.FC = () => {
                                 onChange={handleChange}
                                 placeholder="Your Email"
                                 required
-                                className="flex-1 bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white placeholder-gray-500 focus:outline-none focus:border-purple-500 focus:ring-1 focus:ring-purple-500 transition-all font-light"
+                                className="flex-1 bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white placeholder-gray-500 focus:outline-none focus:border-brand-deep focus:ring-1 focus:ring-brand-deep transition-all font-light"
                             />
                         </div>
 
@@ -82,12 +85,12 @@ export const Contact: React.FC = () => {
                                 placeholder="Tell me about your project and goals"
                             required
                             rows={5}
-                            className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white placeholder-gray-500 focus:outline-none focus:border-cyan-500 focus:ring-1 focus:ring-cyan-500 transition-all resize-none font-light"
+                            className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white placeholder-gray-500 focus:outline-none focus:border-brand focus:ring-1 focus:ring-brand transition-all resize-none font-light"
                         ></textarea>
 
                         <button
                             type="submit"
-                            className="w-full py-4 bg-gradient-to-r from-cyan-500 to-purple-500 rounded-xl text-white font-bold text-lg transition-all hover:opacity-90 flex items-center justify-center gap-2"
+                            className="w-full py-4 bg-gradient-to-r from-brand to-brand-deep rounded-xl text-white font-bold text-lg transition-all hover:opacity-90 flex items-center justify-center gap-2 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand/60 focus-visible:ring-offset-2 focus-visible:ring-offset-brand-dark"
                         >
                             <span>Send Message</span>
                             <Send className="w-5 h-5" />
@@ -95,7 +98,7 @@ export const Contact: React.FC = () => {
 
                         {/* Inline Success Message */}
                         {submitStatus === 'success' && (
-                            <div className="mt-2 p-4 rounded-xl bg-cyan-500/10 border border-cyan-500/30 text-cyan-400 text-center font-medium animate-pulse">
+                            <div className="mt-2 p-4 rounded-xl bg-brand/10 border border-brand/30 text-brand-light text-center font-medium animate-pulse">
                                 Message sent! I&apos;ll get back to you as soon as possible.
                             </div>
                         )}

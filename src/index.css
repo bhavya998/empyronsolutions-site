@@ -1,10 +1,12 @@
 @import "tailwindcss";
 
 @theme {
-  --color-cyan-500: #10b981;
+  --color-brand: #10b981;
   /* Emerald */
-  --color-purple-500: #059669;
-  /* Deep Emerald */
+  --color-brand-light: #34d399;
+  /* Light emerald */
+  --color-brand-deep: #059669;
+  /* Deep emerald */
   --color-brand-dark: #020617;
   /* Very dark slate for cosmic void */
 
@@ -17,6 +19,15 @@
   font-family: var(--font-sans);
 }
 
+html {
+  scroll-behavior: smooth;
+  /* Offset anchor jumps so the fixed header never covers section headings */
+  scroll-padding-top: 5rem;
+  /* Firefox scrollbar */
+  scrollbar-width: thin;
+  scrollbar-color: #1e293b var(--color-brand-dark);
+}
+
 body {
   margin: 0;
   -webkit-font-smoothing: antialiased;
@@ -24,6 +35,28 @@ body {
   overflow-x: hidden;
   background-color: var(--color-brand-dark);
   color: white;
+}
+
+/* Emerald text selection */
+::selection {
+  background: rgba(16, 185, 129, 0.35);
+  color: #ffffff;
+}
+
+/* Slim dark scrollbar, emerald on hover */
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  background: var(--color-brand-dark);
+}
+::-webkit-scrollbar-thumb {
+  background: #1e293b;
+  border-radius: 8px;
+  border: 2px solid var(--color-brand-dark);
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-brand);
 }
 
 /* Glassmorphism utility */
@@ -35,9 +68,24 @@ body {
 }
 
 .text-gradient {
-  background: linear-gradient(to right, var(--color-cyan-500), var(--color-purple-500));
+  background: linear-gradient(to right, var(--color-brand), var(--color-brand-deep));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
   color: transparent;
+}
+
+/* Respect users who prefer reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
 }

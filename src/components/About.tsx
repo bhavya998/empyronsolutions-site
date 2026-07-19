@@ -19,14 +19,14 @@ export const About: React.FC = () => {
                 >
                     <div className="flex flex-col md:flex-row gap-10 items-start">
                         <div className="flex-shrink-0">
-                            <div className="w-24 h-24 rounded-full overflow-hidden ring-2 ring-cyan-500/30 flex-shrink-0">
+                            <div className="w-24 h-24 rounded-full overflow-hidden ring-2 ring-brand/30 flex-shrink-0">
                                 <img src="/bhavya.jpg" alt="Bhavya Shah" className="w-full h-full object-cover object-top" />
                             </div>
                         </div>
 
                         <div className="flex-1">
                             <h3 className="text-3xl font-bold text-white mb-2">Bhavya Shah</h3>
-                            <p className="text-cyan-400 text-lg font-medium mb-6">Independent Data &amp; AI Engineer</p>
+                            <p className="text-brand-light text-lg font-medium mb-6">Independent Data &amp; AI Engineer</p>
 
                             <p className="text-gray-300 leading-relaxed text-lg mb-8 font-light">
                                 I&apos;m an independent Data &amp; AI Engineer based in Koblenz, Germany, operating under
@@ -46,25 +46,25 @@ export const About: React.FC = () => {
                             <div className="space-y-4">
                                 <div className="flex items-center gap-4 text-gray-300">
                                     <div className="p-3 glass rounded-full">
-                                        <MapPin className="w-5 h-5 text-cyan-500" />
+                                        <MapPin className="w-5 h-5 text-brand" />
                                     </div>
                                     <span className="font-medium">Based in Koblenz, Germany</span>
                                 </div>
                                 <div className="flex items-center gap-4 text-gray-300">
                                     <div className="p-3 glass rounded-full">
-                                        <Briefcase className="w-5 h-5 text-purple-500" />
+                                        <Briefcase className="w-5 h-5 text-brand-deep" />
                                     </div>
                                     <span className="font-medium">Available for remote projects across Europe and India</span>
                                 </div>
                                 <div className="flex items-center gap-4 text-gray-300">
                                     <div className="p-3 glass rounded-full">
-                                        <Linkedin className="w-5 h-5 text-cyan-500" />
+                                        <Linkedin className="w-5 h-5 text-brand" />
                                     </div>
                                     <a
                                         href="https://www.linkedin.com/in/bhavya-ashvin-shah"
                                         target="_blank"
                                         rel="noopener noreferrer"
-                                        className="font-medium text-cyan-400 hover:text-cyan-300 transition-colors"
+                                        className="font-medium text-brand-light hover:text-white transition-colors"
                                     >
                                         linkedin.com/in/bhavya-ashvin-shah
                                     </a>

@@ -4,28 +4,28 @@ import { FileText, Workflow, Image, Cpu } from 'lucide-react';
 
 const cases = [
     {
-        icon: <FileText className="w-7 h-7 text-cyan-500" />,
+        icon: <FileText className="w-7 h-7 text-brand" />,
         tag: 'RAG Pipeline',
         title: 'Document Intelligence for a Legal Practice',
         desc: 'Built a LangChain + ChromaDB RAG system for a small German law firm to query 2,000+ case files and contracts in natural language. Chunked and embedded legal documents, added citation tracking, and deployed on a Hetzner VPS. What used to take an afternoon of manual searching now takes seconds.',
         result: 'Hours of document search eliminated',
     },
     {
-        icon: <Workflow className="w-7 h-7 text-purple-500" />,
+        icon: <Workflow className="w-7 h-7 text-brand-deep" />,
         tag: 'n8n Automation',
         title: 'AI-Powered Operations for a D2C Brand',
         desc: 'Designed n8n workflows integrating LLM steps for a Shopify brand processing 200+ orders/day. Automated order validation, customer notification triage, and inventory alerts — replacing a patchwork of Zapier zaps and manual Slack messages that kept breaking.',
         result: '80% of manual ops tasks automated',
     },
     {
-        icon: <Image className="w-7 h-7 text-cyan-500" />,
+        icon: <Image className="w-7 h-7 text-brand" />,
         tag: 'Stable Diffusion',
         title: 'Custom Product Imagery for Ecommerce',
         desc: 'Fine-tuned Stable Diffusion XL on a fashion brand\'s product catalog to generate on-brand lifestyle shots from simple flat-lay photos. Eliminated the need for costly photoshoots for new SKU drops. Deployed as a lightweight Gradio app the client\'s team uses directly.',
         result: 'Photoshoot costs cut by 60%',
     },
     {
-        icon: <Cpu className="w-7 h-7 text-purple-500" />,
+        icon: <Cpu className="w-7 h-7 text-brand-deep" />,
         tag: 'SLM Fine-Tuning',
         title: 'On-Device Chatbot for a SaaS Startup',
         desc: 'Fine-tuned Phi-3-mini on a SaaS company\'s support docs and chat logs to power their in-app assistant. Optimized with 4-bit quantization to run under 2GB VRAM, keeping inference costs near zero. Handles 70% of Tier-1 support queries without human escalation.',
@@ -55,7 +55,7 @@ export const CaseStudies: React.FC = () => {
                             <div className="mb-4 inline-block p-3 rounded-xl bg-white/5 border border-white/10">
                                 {item.icon}
                             </div>
-                            <span className="text-xs font-semibold text-cyan-400 tracking-wider uppercase mb-3">{item.tag}</span>
+                            <span className="text-xs font-semibold text-brand-light tracking-wider uppercase mb-3">{item.tag}</span>
                             <h3 className="text-xl font-bold text-white mb-3">{item.title}</h3>
                             <p className="text-gray-400 text-sm leading-relaxed mb-6 flex-1">{item.desc}</p>
                             <div className="mt-auto pt-4 border-t border-white/10">

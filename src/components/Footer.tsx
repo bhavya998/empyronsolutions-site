@@ -19,22 +19,22 @@ export const Footer: React.FC = () => {
                     <div>
                         <h4 className="text-white font-semibold mb-4 text-sm uppercase tracking-wider">Navigation</h4>
                         <div className="flex flex-col gap-3">
-                            <a href="#home" className="text-gray-400 hover:text-cyan-500 transition-colors text-sm">Home</a>
-                            <a href="#services" className="text-gray-400 hover:text-cyan-500 transition-colors text-sm">Services</a>
-                            <a href="#work" className="text-gray-400 hover:text-cyan-500 transition-colors text-sm">Work</a>
-                            <a href="#about" className="text-gray-400 hover:text-cyan-500 transition-colors text-sm">About</a>
-                            <a href="#contact" className="text-gray-400 hover:text-cyan-500 transition-colors text-sm">Contact</a>
+                            <a href="#home" className="text-gray-400 hover:text-brand transition-colors text-sm">Home</a>
+                            <a href="#services" className="text-gray-400 hover:text-brand transition-colors text-sm">Services</a>
+                            <a href="#work" className="text-gray-400 hover:text-brand transition-colors text-sm">Work</a>
+                            <a href="#about" className="text-gray-400 hover:text-brand transition-colors text-sm">About</a>
+                            <a href="#contact" className="text-gray-400 hover:text-brand transition-colors text-sm">Contact</a>
                         </div>
                     </div>
 
                     <div>
                         <h4 className="text-white font-semibold mb-4 text-sm uppercase tracking-wider">Contact</h4>
                         <div className="flex flex-col gap-3">
-                            <a href="mailto:bhavya@empyronsolutions.com" className="flex items-center gap-2 text-gray-400 hover:text-cyan-500 transition-colors text-sm">
+                            <a href="mailto:bhavya@empyronsolutions.com" className="flex items-center gap-2 text-gray-400 hover:text-brand transition-colors text-sm">
                                 bhavya@empyronsolutions.com
                             </a>
                             <p className="text-gray-400 text-sm">Koblenz, Germany</p>
-                            <a href="https://www.linkedin.com/in/bhavya-ashvin-shah" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-gray-400 hover:text-cyan-500 transition-colors text-sm">
+                            <a href="https://www.linkedin.com/in/bhavya-ashvin-shah" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-gray-400 hover:text-brand transition-colors text-sm">
                                 <Linkedin className="w-4 h-4" />
                                 LinkedIn
                             </a>

@@ -1,23 +1,33 @@
 import React, { useState, useEffect } from 'react';
 import { Menu, X } from 'lucide-react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion, AnimatePresence, useScroll, useSpring } from 'framer-motion';
 
-const navItems = ['Home', 'Services', 'About', 'Contact'];
+const navItems = ['Home', 'Services', 'Work', 'About', 'Contact'];
 
 export const Header: React.FC = () => {
     const [isScrolled, setIsScrolled] = useState(false);
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+    const { scrollYProgress } = useScroll();
+    const progressScaleX = useSpring(scrollYProgress, { stiffness: 120, damping: 30, restDelta: 0.001 });
 
     useEffect(() => {
         const handleScroll = () => {
             setIsScrolled(window.scrollY > 20);
         };
-        window.addEventListener('scroll', handleScroll);
+        window.addEventListener('scroll', handleScroll, { passive: true });
         return () => window.removeEventListener('scroll', handleScroll);
     }, []);
 
+    const navHref = (item: string) => (item === 'Home' ? '/' : `#${item.toLowerCase()}`);
+
     return (
         <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled ? 'glass py-4' : 'bg-transparent py-6'}`}>
+            {/* Scroll progress indicator */}
+            <motion.div
+                style={{ scaleX: progressScaleX }}
+                className="absolute top-0 left-0 right-0 h-0.5 origin-left bg-gradient-to-r from-brand to-brand-deep"
+            />
+
             <div className="container mx-auto px-6 md:px-12 flex justify-between items-center">
                 {/* Logo */}
                 <a href="/" className="flex items-center gap-3 cursor-pointer z-50">
@@ -28,17 +38,21 @@ export const Header: React.FC = () => {
                 {/* Desktop Nav */}
                 <nav className="hidden md:flex items-center gap-8">
                     {navItems.map((item) => (
-                        <a key={item} href={item === 'Home' ? '/' : `#${item.toLowerCase()}`} className="text-gray-300 hover:text-cyan-500 transition-colors text-sm font-medium uppercase tracking-wider">
+                        <a key={item} href={navHref(item)} className="text-gray-300 hover:text-brand transition-colors text-sm font-medium uppercase tracking-wider">
                             {item}
                         </a>
                     ))}
-                    <a href="#contact" className="bg-gradient-to-r from-cyan-500 to-purple-500 text-white px-6 py-2.5 rounded-full font-medium hover:scale-105 transition-all flex items-center justify-center">
+                    <a href="#contact" className="bg-gradient-to-r from-brand to-brand-deep text-white px-6 py-2.5 rounded-full font-medium hover:scale-105 transition-all flex items-center justify-center focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand/60 focus-visible:ring-offset-2 focus-visible:ring-offset-brand-dark">
                         Start a Project
                     </a>
                 </nav>
 
                 {/* Mobile menu toggle */}
-                <button className="md:hidden z-50 text-white" onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}>
+                <button
+                    className="md:hidden z-50 text-white"
+                    onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+                    aria-label={isMobileMenuOpen ? 'Close menu' : 'Open menu'}
+                >
                     {isMobileMenuOpen ? <X /> : <Menu />}
                 </button>
             </div>
@@ -55,13 +69,20 @@ export const Header: React.FC = () => {
                         {navItems.map((item) => (
                             <a
                                 key={item}
-                                href={item === 'Home' ? '/' : `#${item.toLowerCase()}`}
+                                href={navHref(item)}
                                 onClick={() => setIsMobileMenuOpen(false)}
-                                className="text-2xl font-bold text-gray-300 hover:text-cyan-500 transition-colors"
+                                className="text-2xl font-bold text-gray-300 hover:text-brand transition-colors"
                             >
                                 {item}
                             </a>
                         ))}
+                        <a
+                            href="#contact"
+                            onClick={() => setIsMobileMenuOpen(false)}
+                            className="mt-4 bg-gradient-to-r from-brand to-brand-deep text-white px-8 py-3.5 rounded-full font-bold text-lg"
+                        >
+                            Start a Project
+                        </a>
                     </motion.div>
                 )}
             </AnimatePresence>
