@@ -3,6 +3,7 @@ import { ArrowUpRight, Linkedin, Mail } from 'lucide-react';
 
 const links = [
     { label: 'Capabilities', href: '#capabilities' },
+    { label: 'Technology stack', href: '#stack' },
     { label: 'Selected work', href: '#work' },
     { label: 'Approach', href: '#approach' },
     { label: 'About', href: '#about' },

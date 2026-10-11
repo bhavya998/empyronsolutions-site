@@ -15,7 +15,7 @@ const spaceGrotesk = Space_Grotesk({
 });
 
 const siteUrl = 'https://www.empyronsolutions.com';
-const description = 'Independent AI and data engineering studio in Koblenz, Germany. We build document intelligence, machine learning, data pipelines, and practical automation for growing teams.';
+const description = 'Empyron Solutions builds production AI systems in Koblenz, Germany: MCP-connected agents, hybrid RAG, fine-tuned LLMs, and data pipelines for growing teams.';
 
 export const metadata: Metadata = {
     metadataBase: new URL(siteUrl),
@@ -73,6 +73,15 @@ const organization = {
         addressCountry: 'DE',
     },
     areaServed: ['Europe', 'India'],
+    knowsAbout: [
+        'Artificial Intelligence',
+        'Machine Learning',
+        'Model Context Protocol',
+        'AI Agents',
+        'Hybrid Retrieval-Augmented Generation',
+        'LLM Fine-Tuning',
+        'Data Engineering',
+    ],
 };
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {

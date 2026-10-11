@@ -1,6 +1,7 @@
 import { Header } from '../components/Header';
 import { Hero } from '../components/Hero/Hero';
 import { Services } from '../components/Services';
+import { TechStack } from '../components/TechStack';
 import { CaseStudies } from '../components/CaseStudies';
 import { HowIWork } from '../components/HowIWork';
 import { Team } from '../components/Team';
@@ -15,6 +16,7 @@ export default function HomePage() {
             <main id="main">
                 <Hero />
                 <Services />
+                <TechStack />
                 <CaseStudies />
                 <HowIWork />
                 <Team />

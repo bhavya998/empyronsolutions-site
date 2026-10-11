@@ -1,34 +1,41 @@
 import React from 'react';
-import { ArrowUpRight, BarChart3, Database, FileSearch, Workflow } from 'lucide-react';
+import { ArrowUpRight, Bot, Braces, Database, Search, SlidersHorizontal } from 'lucide-react';
 
 const capabilities = [
     {
         number: '01',
-        icon: <FileSearch className="h-5 w-5" aria-hidden="true" />,
-        title: 'Document intelligence',
-        description: 'Search and ask questions across internal documents, manuals, and case files. We build retrieval systems with source citations and a clear path to verify answers.',
-        detail: 'RAG · knowledge search · LLM applications',
+        icon: <Bot className="h-5 w-5" aria-hidden="true" />,
+        title: 'Agentic systems & MCP',
+        description: 'Agents that call the right tools, use your systems, and hand off sensitive actions for approval. We build MCP clients and servers around real business workflows.',
+        detail: 'MCP · OpenAI Agents SDK · LangGraph · tool calling · human approval',
     },
     {
         number: '02',
-        icon: <BarChart3 className="h-5 w-5" aria-hidden="true" />,
-        title: 'Machine learning & forecasting',
-        description: 'Use your historical data to forecast demand, understand churn, classify information, or support better day-to-day decisions.',
-        detail: 'Forecasting · classification · model evaluation',
+        icon: <Search className="h-5 w-5" aria-hidden="true" />,
+        title: 'Hybrid RAG & knowledge systems',
+        description: 'Ground answers in your documents with semantic and keyword retrieval, metadata filters, reranking, citations, and evaluation against real queries.',
+        detail: 'Dense vectors · BM25 · RRF · rerankers · retrieval evaluation',
     },
     {
         number: '03',
-        icon: <Database className="h-5 w-5" aria-hidden="true" />,
-        title: 'Data engineering',
-        description: 'Make fragmented data usable. We connect sources, build reliable pipelines, and give your models and teams a sound foundation.',
-        detail: 'Pipelines · APIs · data preparation',
+        icon: <SlidersHorizontal className="h-5 w-5" aria-hidden="true" />,
+        title: 'LLM fine-tuning & adaptation',
+        description: 'Adapt open-weight models when prompting is not enough. We prepare datasets, fine-tune adapters, measure quality, and package models for the target hardware.',
+        detail: 'Hugging Face PEFT · TRL · LoRA · QLoRA · quantization',
     },
     {
         number: '04',
-        icon: <Workflow className="h-5 w-5" aria-hidden="true" />,
-        title: 'Workflow automation',
-        description: 'Reduce repetitive operational work with carefully scoped automations that connect the tools and processes your team already uses.',
-        detail: 'Operations · triage · system integrations',
+        icon: <Braces className="h-5 w-5" aria-hidden="true" />,
+        title: 'Model serving & AI integration',
+        description: 'Put hosted or self-hosted models behind reliable APIs, connect them to products, and tune inference for latency, privacy, and cost.',
+        detail: 'OpenAI & Anthropic APIs · vLLM · SGLang · FastAPI',
+    },
+    {
+        number: '05',
+        icon: <Database className="h-5 w-5" aria-hidden="true" />,
+        title: 'Data, ML & automation',
+        description: 'Build the pipelines and workflow automation around AI: forecasting, classification, integrations, and the operational data foundations that keep systems useful.',
+        detail: 'Python · PostgreSQL · Redis · Docker · n8n · predictive ML',
     },
 ];
 
@@ -38,13 +45,13 @@ export const Services: React.FC = () => {
             <div className="page-container">
                 <div className="grid gap-8 md:grid-cols-[0.78fr_1.22fr] md:gap-16">
                     <div className="max-w-md">
-                        <p className="eyebrow mb-5">What we do</p>
+                        <p className="eyebrow mb-5">What we build</p>
                         <h2 className="text-4xl font-semibold leading-[1.05] tracking-[-0.05em] text-[#17212d] sm:text-5xl">
-                            Applied AI, from data to deployment.
+                            Applied AI, from model to production system.
                         </h2>
                         <p className="mt-6 leading-7 text-[#596575]">
-                            We start with the workflow and the data, then choose tools that fit. Sometimes that means
-                            an LLM. Sometimes it means a better pipeline.
+                            We work across the full stack: connect models to tools, retrieve the right context, adapt
+                            models when needed, and ship the software around them.
                         </p>
                         <a href="#contact" className="mt-7 inline-flex items-center gap-2 text-sm font-semibold text-[#315bd4] hover:text-[#17263d]">
                             Tell us what you&apos;re solving <ArrowUpRight className="h-4 w-4" aria-hidden="true" />

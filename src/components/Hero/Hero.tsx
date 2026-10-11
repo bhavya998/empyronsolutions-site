@@ -26,9 +26,8 @@ export const Hero: React.FC = () => {
                         </h1>
 
                         <p className="mt-7 max-w-xl text-lg leading-8 text-[#536071] md:text-xl">
-                            Empyron Solutions helps growing teams turn messy data and promising prototypes into
-                            practical systems — document intelligence, machine learning, and automation built for
-                            real workflows.
+                            Empyron Solutions builds production AI systems for growing teams: MCP-connected agents,
+                            hybrid RAG, fine-tuned LLMs, and the data pipelines that make them useful.
                         </p>
 
                         <div className="mt-9 flex flex-col gap-3 sm:flex-row">
@@ -67,16 +66,17 @@ export const Hero: React.FC = () => {
                                     <div className="min-h-0 rounded-xl border border-[#5775bc] bg-[#263a59] p-4 sm:min-h-32">
                                         <p className="text-[0.6rem] font-semibold tracking-[0.14em] text-[#b4c7ef]">ENGINEERING</p>
                                         <div className="mt-4 space-y-2 text-xs text-white">
-                                            <p className="flex items-center gap-2"><Workflow className="h-3.5 w-3.5 text-[#a8bcff]" /> Retrieve</p>
-                                            <p className="flex items-center gap-2"><Workflow className="h-3.5 w-3.5 text-[#a8bcff]" /> Predict</p>
+                                            <p className="flex items-center gap-2"><Workflow className="h-3.5 w-3.5 text-[#a8bcff]" /> MCP tools</p>
+                                            <p className="flex items-center gap-2"><Workflow className="h-3.5 w-3.5 text-[#a8bcff]" /> Hybrid RAG</p>
+                                            <p className="flex items-center gap-2"><Workflow className="h-3.5 w-3.5 text-[#a8bcff]" /> Fine-tuned model</p>
                                         </div>
                                     </div>
                                     <span className="mx-auto h-3 w-px bg-[#7185a1] sm:mx-0 sm:h-px sm:w-5" />
                                     <div className="min-h-0 rounded-xl bg-[#e8eefb] p-4 text-[#17263d] sm:min-h-32">
                                         <p className="text-[0.6rem] font-semibold tracking-[0.14em] text-[#52637b]">IN USE</p>
                                         <div className="mt-4 space-y-2 text-xs font-medium">
-                                            <p>Useful answers</p>
-                                            <p>Clear signals</p>
+                                            <p>Grounded answers</p>
+                                            <p>Approved actions</p>
                                         </div>
                                     </div>
                                 </div>

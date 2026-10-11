@@ -33,4 +33,5 @@ Create a form at [Formspree](https://formspree.io) and set `NEXT_PUBLIC_FORMSPRE
 
 - `src/app/` — Next.js route, metadata, sitemap, robots, Impressum, and privacy rules
 - `src/components/` — page sections and interactive client components
+- `src/components/TechStack.tsx` — MCP/agents, hybrid retrieval, fine-tuning, and inference technologies
 - `public/` — static images and the GitHub Pages custom-domain `CNAME`
