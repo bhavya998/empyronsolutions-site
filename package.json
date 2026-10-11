@@ -12,7 +12,7 @@
     "lint": "eslint .",
     "preview": "node scripts/preview.mjs",
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d out"
+    "deploy": "gh-pages -d out --nojekyll"
   },
   "dependencies": {
     "lucide-react": "^0.575.0",
