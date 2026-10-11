@@ -1,91 +1,85 @@
-import React, { useState, useEffect } from 'react';
-import { Menu, X } from 'lucide-react';
-import { motion, AnimatePresence, useScroll, useSpring } from 'framer-motion';
+"use client";
 
-const navItems = ['Home', 'Services', 'Work', 'About', 'Contact'];
+import React, { useEffect, useState } from 'react';
+import { ArrowUpRight, Menu, X } from 'lucide-react';
+
+const navItems = [
+    { label: 'Work', href: '#work' },
+    { label: 'Capabilities', href: '#capabilities' },
+    { label: 'Approach', href: '#approach' },
+    { label: 'About', href: '#about' },
+];
 
 export const Header: React.FC = () => {
-    const [isScrolled, setIsScrolled] = useState(false);
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-    const { scrollYProgress } = useScroll();
-    const progressScaleX = useSpring(scrollYProgress, { stiffness: 120, damping: 30, restDelta: 0.001 });
 
     useEffect(() => {
-        const handleScroll = () => {
-            setIsScrolled(window.scrollY > 20);
+        if (!isMobileMenuOpen) return;
+        const closeOnEscape = (event: KeyboardEvent) => {
+            if (event.key === 'Escape') setIsMobileMenuOpen(false);
         };
-        window.addEventListener('scroll', handleScroll, { passive: true });
-        return () => window.removeEventListener('scroll', handleScroll);
-    }, []);
-
-    const navHref = (item: string) => (item === 'Home' ? '/' : `#${item.toLowerCase()}`);
+        window.addEventListener('keydown', closeOnEscape);
+        return () => window.removeEventListener('keydown', closeOnEscape);
+    }, [isMobileMenuOpen]);
 
     return (
-        <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled ? 'glass py-4' : 'bg-transparent py-6'}`}>
-            {/* Scroll progress indicator */}
-            <motion.div
-                style={{ scaleX: progressScaleX }}
-                className="absolute top-0 left-0 right-0 h-0.5 origin-left bg-gradient-to-r from-brand to-brand-deep"
-            />
-
-            <div className="container mx-auto px-6 md:px-12 flex justify-between items-center">
-                {/* Logo */}
-                <a href="/" className="flex items-center gap-3 cursor-pointer z-50">
-                    <img src="/logo.png" alt="Empyron Logo" className="w-8 h-8 object-contain" />
-                    <span className="text-xl font-bold tracking-tight text-white mb-0.5">Empyron <span className="text-gradient">Solutions</span></span>
+        <header className="fixed inset-x-0 top-0 z-50 border-b border-[#dfe2e6] bg-[#f4f3ef]/95 backdrop-blur-md">
+            <div className="page-container flex h-[4.75rem] items-center justify-between">
+                <a href="#home" className="flex items-center gap-3" aria-label="Empyron Solutions home">
+                    <span className="flex h-9 w-9 items-center justify-center rounded-lg bg-[#17263d] font-display text-xs font-bold tracking-wide text-white">ES</span>
+                    <span className="flex flex-col leading-none">
+                        <span className="font-display text-sm font-bold tracking-[0.12em] text-[#17212d]">EMPYRON</span>
+                        <span className="mt-1 text-[0.58rem] font-semibold tracking-[0.25em] text-[#687484]">SOLUTIONS</span>
+                    </span>
                 </a>
 
-                {/* Desktop Nav */}
-                <nav className="hidden md:flex items-center gap-8">
+                <nav aria-label="Main navigation" className="hidden items-center gap-8 lg:flex">
                     {navItems.map((item) => (
-                        <a key={item} href={navHref(item)} className="text-gray-300 hover:text-brand transition-colors text-sm font-medium uppercase tracking-wider">
-                            {item}
+                        <a
+                            key={item.label}
+                            href={item.href}
+                            className="text-sm font-medium text-[#536071] transition-colors hover:text-[#315bd4]"
+                        >
+                            {item.label}
                         </a>
                     ))}
-                    <a href="#contact" className="bg-gradient-to-r from-brand to-brand-deep text-white px-6 py-2.5 rounded-full font-medium hover:scale-105 transition-all flex items-center justify-center focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand/60 focus-visible:ring-offset-2 focus-visible:ring-offset-brand-dark">
-                        Start a Project
+                    <a
+                        href="#contact"
+                        className="inline-flex items-center gap-2 rounded-lg bg-[#315bd4] px-4 py-2.5 text-sm font-semibold text-white transition-colors hover:bg-[#2448b0]"
+                    >
+                        Discuss a project
+                        <ArrowUpRight className="h-4 w-4" />
                     </a>
                 </nav>
 
-                {/* Mobile menu toggle */}
                 <button
-                    className="md:hidden z-50 text-white"
+                    className="rounded-lg p-2 text-[#17212d] lg:hidden"
                     onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
                     aria-label={isMobileMenuOpen ? 'Close menu' : 'Open menu'}
+                    aria-expanded={isMobileMenuOpen}
+                    aria-controls="mobile-navigation"
                 >
-                    {isMobileMenuOpen ? <X /> : <Menu />}
+                    {isMobileMenuOpen ? <X aria-hidden="true" /> : <Menu aria-hidden="true" />}
                 </button>
             </div>
 
-            {/* Mobile Nav */}
-            <AnimatePresence>
-                {isMobileMenuOpen && (
-                    <motion.div
-                        initial={{ opacity: 0, y: -20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        exit={{ opacity: 0, y: -20 }}
-                        className="absolute top-0 left-0 w-full h-screen bg-brand-dark/95 backdrop-blur-xl flex flex-col items-center justify-center gap-8 md:hidden"
-                    >
+            <nav id="mobile-navigation" aria-label="Mobile navigation" hidden={!isMobileMenuOpen} className="border-t border-[#dfe2e6] bg-[#f4f3ef] px-4 pb-5 pt-3 lg:hidden">
+                    <div className="page-container flex flex-col">
                         {navItems.map((item) => (
                             <a
-                                key={item}
-                                href={navHref(item)}
+                                key={item.label}
+                                href={item.href}
                                 onClick={() => setIsMobileMenuOpen(false)}
-                                className="text-2xl font-bold text-gray-300 hover:text-brand transition-colors"
+                                className="border-b border-[#e3e6e9] py-3.5 text-sm font-medium text-[#344154]"
                             >
-                                {item}
+                                {item.label}
                             </a>
                         ))}
-                        <a
-                            href="#contact"
-                            onClick={() => setIsMobileMenuOpen(false)}
-                            className="mt-4 bg-gradient-to-r from-brand to-brand-deep text-white px-8 py-3.5 rounded-full font-bold text-lg"
-                        >
-                            Start a Project
+                        <a href="#contact" onClick={() => setIsMobileMenuOpen(false)} className="mt-4 rounded-lg bg-[#315bd4] px-4 py-3 text-center text-sm font-semibold text-white">
+                            Discuss a project
                         </a>
-                    </motion.div>
-                )}
-            </AnimatePresence>
+                    </div>
+            </nav>
         </header>
     );
 };

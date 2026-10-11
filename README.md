@@ -1,73 +1,36 @@
-# React + TypeScript + Vite
+# Empyron Solutions website
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Production marketing site for Empyron Solutions, an independent AI and data engineering studio based in Koblenz, Germany.
 
-Currently, two official plugins are available:
+## Stack and rendering
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- Node.js 24 LTS for local development and CI
+- Next.js 16 App Router + React 19 + TypeScript
+- Tailwind CSS 4
+- Static export to `out/` for the existing GitHub Pages custom-domain deployment
+- React client components only for the mobile navigation and contact form; the page content is pre-rendered to HTML
 
-## React Compiler
+GitHub Pages serves static files, so there is no persistent Node.js server in production. Next.js and Node.js are used to build the pre-rendered site. This keeps hosting compatible with the existing `gh-pages` branch while giving search engines and social previews complete page HTML and metadata.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Commands
 
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
-
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```bash
+npm install
+npm run dev       # Next.js dev server at http://localhost:3000
+npm run lint
+npm run build     # static export to out/
+npm run preview   # preview out/ at http://localhost:4173
+npm run deploy    # build and publish out/ to the gh-pages branch
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+Use Node 24 (`.nvmrc`). GitHub Actions runs lint and the static production build on pushes and pull requests.
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+## Contact form
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+Create a form at [Formspree](https://formspree.io) and set `NEXT_PUBLIC_FORMSPREE_ID` in `.env.local` before building. If it is not configured, the form opens a prefilled email draft instead.
+
+## Source layout
+
+- `src/app/` — Next.js route, metadata, sitemap, robots, Impressum, and privacy rules
+- `src/components/` — page sections and interactive client components
+- `public/` — static images and the GitHub Pages custom-domain `CNAME`

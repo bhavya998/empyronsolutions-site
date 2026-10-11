@@ -1,77 +1,80 @@
 import React from 'react';
-import { motion } from 'framer-motion';
-import { Brain, Database, BarChart3, ShieldCheck, Cpu, Network } from 'lucide-react';
+import { ArrowUpRight, BarChart3, Database, FileSearch, Workflow } from 'lucide-react';
 
-const services = [
+const capabilities = [
     {
-        icon: <Brain className="w-8 h-8 text-brand" />,
-        title: 'Custom AI & ML Models',
-        desc: 'Custom ML models built for your data and your problem — churn prediction, demand forecasting, classification, recommendation systems.',
+        number: '01',
+        icon: <FileSearch className="h-5 w-5" aria-hidden="true" />,
+        title: 'Document intelligence',
+        description: 'Search and ask questions across internal documents, manuals, and case files. We build retrieval systems with source citations and a clear path to verify answers.',
+        detail: 'RAG · knowledge search · LLM applications',
     },
     {
-        icon: <Network className="w-8 h-8 text-brand-deep" />,
-        title: 'Agentic RAG Pipelines',
-        desc: 'Let users query your documents in plain English. I build RAG systems that turn PDFs, manuals, and knowledge bases into conversational intelligence.',
+        number: '02',
+        icon: <BarChart3 className="h-5 w-5" aria-hidden="true" />,
+        title: 'Machine learning & forecasting',
+        description: 'Use your historical data to forecast demand, understand churn, classify information, or support better day-to-day decisions.',
+        detail: 'Forecasting · classification · model evaluation',
     },
     {
-        icon: <Cpu className="w-8 h-8 text-brand" />,
-        title: 'End-to-End AI Inferencing',
-        desc: 'Integrate GPT-4, Claude, or open-source models into your product. Fine-tuned for your domain, deployed at a cost that makes sense for your scale.',
+        number: '03',
+        icon: <Database className="h-5 w-5" aria-hidden="true" />,
+        title: 'Data engineering',
+        description: 'Make fragmented data usable. We connect sources, build reliable pipelines, and give your models and teams a sound foundation.',
+        detail: 'Pipelines · APIs · data preparation',
     },
     {
-        icon: <Database className="w-8 h-8 text-brand-deep" />,
-        title: 'Data Engineering',
-        desc: 'Clean, reliable pipelines that actually run. I unify your messy data sources — CRMs, databases, APIs — into one trustworthy source of truth.',
-    },
-    {
-        icon: <BarChart3 className="w-8 h-8 text-brand" />,
-        title: 'Industrial Predictive Analytics',
-        desc: 'Stop guessing. Forecasting models that give you data-driven answers on revenue, customer churn, and demand — built for your specific business context.',
-    },
-    {
-        icon: <ShieldCheck className="w-8 h-8 text-brand-deep" />,
-        title: 'Cognitive Enterprise Automation',
-        desc: 'Automate repetitive work. AI agents that handle triage, data entry, and multi-step processes — freeing you to focus on decisions, not drudgery.',
+        number: '04',
+        icon: <Workflow className="h-5 w-5" aria-hidden="true" />,
+        title: 'Workflow automation',
+        description: 'Reduce repetitive operational work with carefully scoped automations that connect the tools and processes your team already uses.',
+        detail: 'Operations · triage · system integrations',
     },
 ];
 
 export const Services: React.FC = () => {
     return (
-        <section id="services" className="py-24 relative z-10 bg-brand-dark overflow-hidden border-t border-white/5">
-            {/* Soft ambient glow */}
-            <div className="absolute -top-32 left-1/2 -translate-x-1/2 w-[700px] h-[350px] bg-brand/5 blur-[130px] rounded-full pointer-events-none" />
+        <section id="capabilities" className="border-t border-[#e1e4e7] bg-white py-20 md:py-28">
+            <div className="page-container">
+                <div className="grid gap-8 md:grid-cols-[0.78fr_1.22fr] md:gap-16">
+                    <div className="max-w-md">
+                        <p className="eyebrow mb-5">What we do</p>
+                        <h2 className="text-4xl font-semibold leading-[1.05] tracking-[-0.05em] text-[#17212d] sm:text-5xl">
+                            Applied AI, from data to deployment.
+                        </h2>
+                        <p className="mt-6 leading-7 text-[#596575]">
+                            We start with the workflow and the data, then choose tools that fit. Sometimes that means
+                            an LLM. Sometimes it means a better pipeline.
+                        </p>
+                        <a href="#contact" className="mt-7 inline-flex items-center gap-2 text-sm font-semibold text-[#315bd4] hover:text-[#17263d]">
+                            Tell us what you&apos;re solving <ArrowUpRight className="h-4 w-4" aria-hidden="true" />
+                        </a>
+                    </div>
 
-            <div className="container mx-auto px-6 md:px-12 relative z-20">
-                <div className="text-center max-w-3xl mx-auto mb-20">
-                    <h2 className="text-4xl md:text-5xl font-black mb-6">What I <span className="text-gradient">Build</span></h2>
-                    <p className="text-gray-400 text-lg">
-                        Practical AI and data solutions — no buzzwords, no black boxes.
-                    </p>
+                    <div className="divide-y divide-[#e3e6e9] border-y border-[#e3e6e9]">
+                        {capabilities.map((item) => (
+                            <article key={item.number} className="grid gap-4 py-6 sm:grid-cols-[3rem_1fr] sm:gap-5 md:py-7">
+                                <div className="flex items-center gap-3 sm:block">
+                                    <span className="font-mono text-xs text-[#7b8795]">{item.number}</span>
+                                    <span className="flex h-9 w-9 items-center justify-center rounded-lg bg-[#edf1f7] text-[#315bd4] sm:mt-3">
+                                        {item.icon}
+                                    </span>
+                                </div>
+                                <div>
+                                    <h3 className="text-xl font-semibold tracking-tight text-[#17212d]">{item.title}</h3>
+                                    <p className="mt-2 max-w-2xl text-sm leading-6 text-[#596575]">{item.description}</p>
+                                    <p className="mt-3 text-[0.68rem] font-semibold uppercase tracking-[0.1em] text-[#7c8795]">{item.detail}</p>
+                                </div>
+                            </article>
+                        ))}
+                    </div>
                 </div>
 
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                    {services.map((service, index) => (
-                        <motion.div
-                            key={index}
-                            initial={{ opacity: 0, y: 30 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            viewport={{ once: true, margin: "-100px" }}
-                            transition={{ duration: 0.6, delay: index * 0.1 }}
-                            whileHover={{ y: -10 }}
-                            className="glass p-8 rounded-2xl relative group overflow-hidden"
-                        >
-                            {/* Subtle hover gradient background */}
-                            <div className="absolute inset-0 bg-gradient-to-br from-brand/5 to-brand-deep/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-
-                            <div className="mb-6 inline-block p-4 rounded-xl bg-white/5 border border-white/10 group-hover:border-white/20 transition-colors">
-                                {service.icon}
-                            </div>
-                            <h3 className="text-2xl font-bold mb-4 text-white">{service.title}</h3>
-                            <p className="text-gray-400 leading-relaxed font-light">
-                                {service.desc}
-                            </p>
-                        </motion.div>
-                    ))}
+                <div className="mt-12 flex flex-col gap-3 border-t border-[#e3e6e9] pt-6 sm:flex-row sm:items-center sm:justify-between">
+                    <p className="text-xs font-semibold uppercase tracking-[0.14em] text-[#7c8795]">Experience across</p>
+                    <ul className="flex flex-wrap gap-x-6 gap-y-2 text-sm font-medium text-[#344154]">
+                        <li>E-commerce</li><li>SaaS</li><li>Legal</li><li>Logistics</li>
+                    </ul>
                 </div>
             </div>
         </section>
